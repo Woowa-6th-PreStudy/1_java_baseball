@@ -3,5 +3,15 @@ package baseball;
 public class JavaBaseball {
     public void start() {
         System.out.println("숫자 야구 게임을 시작합니다");
+
+        run();
+    }
+
+    static void run() {
+        Computer computer = new Computer();
+        computer.initNumbers();
+
+        User user = new User();
+        user.inputThreeNumber();
     }
 }

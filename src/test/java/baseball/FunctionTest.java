@@ -1,11 +1,10 @@
 package baseball;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FunctionTest {
 
@@ -43,6 +42,20 @@ class FunctionTest {
             }
             return true;
         }
+    } // class
+
+    static class UserTest {
+
+        @Test
+        void 사용자_입력_테스트() {
+            /*
+            테스트 코드에서 User.inputThreeNumber()를 호출하여
+            Console.readLine()을 실행시키면 무한루프에 빠짐
+            적절한 해결법이 필요한데 잘 모르겠음
+            */
+
+        }
     }
+
 
 }
