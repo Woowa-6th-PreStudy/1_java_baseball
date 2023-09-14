@@ -12,6 +12,18 @@ public class JavaBaseball {
         computer.initNumbers();
 
         User user = new User();
-        user.inputThreeNumber();
+        try {
+//            user.inputThreeNumber();
+        }
+        catch (IllegalArgumentException e) {
+            printTerminateMessage();
+            return;
+        }
+
+
+    }
+
+    static void printTerminateMessage() {
+        System.out.println("비정상적인 입력으로 프로그램이 종료되었습니다");
     }
 }
