@@ -61,6 +61,20 @@ class FunctionTest {
 
             assertThat(user.getInputString()).isEqualTo(input);
         }
+
+        @Test
+        void 사용자_비정상_입력_시_예외처리() {
+            String input = "123\n"  // valid
+                         + "1@A";   // invalid
+            Scanner scanner = getMockScannerFromInput(input);
+
+            User user = new User();
+
+            assertDoesNotThrow(()->user.inputThreeNumber());
+
+            assertThrows(IllegalArgumentException.class,
+                    () -> user.inputThreeNumber());
+        }
     }
 
     private static Scanner getMockScannerFromInput(String input) {
