@@ -2,9 +2,14 @@ package baseball;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FunctionTest {
 
@@ -48,14 +53,23 @@ class FunctionTest {
 
         @Test
         void 사용자_입력_테스트() {
-            /*
-            테스트 코드에서 User.inputThreeNumber()를 호출하여
-            Console.readLine()을 실행시키면 무한루프에 빠짐
-            적절한 해결법이 필요한데 잘 모르겠음
-            */
+            String input = "123";
+            Scanner scanner = getMockScannerFromInput(input);
 
+            User user = new User();
+            user.inputThreeNumber();
+
+            assertThat(user.getInputString()).isEqualTo(input);
         }
     }
 
+    private static Scanner getMockScannerFromInput(String input) {
+        InputStream in = generateUserInput(input);
+        System.setIn(in);
+        return new Scanner(System.in);
+    }
 
+    static InputStream generateUserInput(String input) {
+        return new ByteArrayInputStream(input.getBytes());
+    }
 }
