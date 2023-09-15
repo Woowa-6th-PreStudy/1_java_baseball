@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class User {
     private String inputString = "";
 
-    // 테스트 용도
+    // 테스트 용채
     public String getInputString() {
         return inputString;
     }

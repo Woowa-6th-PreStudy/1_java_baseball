@@ -28,12 +28,34 @@ class FunctionTest {
         void 컴퓨터에_저장된_값이_모두_다른지() {
             Computer computer = new Computer();
             computer.initNumbers();
-
             List<Integer> computerNumbers = computer.numbers;
+
             assertThat(isUniqueElements(List.of(1,1,2))).isEqualTo(false);
             assertThat(isUniqueElements(computerNumbers)).isEqualTo(true);
 
         }
+
+        @Test
+        void 힌트_출력() {
+            Computer computer = new Computer();
+            computer.initNumbers();
+            List<Integer> computerNumbers = computer.numbers;
+            System.out.println(computerNumbers.toString());
+
+            User user = new User();
+            String input = "123\n" +
+                    "456\n" +
+                    "789\n";
+
+            Scanner scanner = getMockScannerFromInput(input);
+
+            for (int i = 0; i < 3; i++) {
+                user.inputThreeNumber();
+                computer.isSameNumbers(user.getInputString());
+            }
+
+        }
+
 
         static boolean isUniqueElements(List<Integer> list) {
             int size = list.size();
